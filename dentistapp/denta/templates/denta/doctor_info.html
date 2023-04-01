@@ -1,0 +1,17 @@
+{% extends 'denta/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="card mt-3">
+      <div class="card-body">
+        <p class="fs-4" style="text-align: justify;"><strong>Full name:</strong> {{ doc.first_name }} {{ doc.last_name }}</p>
+        <p class="fs-4" style="text-align: justify;"><strong>Edication grade:</strong> {{ doc.edication_grade }}</p>
+        <p class="fs-5" style="text-align: justify;"><strong>Experience:</strong> {{ doc.experience }}</p>
+        <br/>
+        <br/>
+        <a class="btn btn-primary" href="{% url 'team' %}">Back</a>
+        <a class="btn btn-primary" href="{% url 'booking_date' %}">Choose a day</a>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

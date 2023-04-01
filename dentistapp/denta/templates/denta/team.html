@@ -1,0 +1,20 @@
+{% extends 'denta/base.html' %}
+
+{% block content %}
+<div class="container">
+  {% if doctors %}
+    {% for doc in doctors %}
+      <div class="card border-secondary mt-3">
+        <div class="card-header bg-transparent border-secondary fs-4" style="text-align: justify;"><strong>Doctor full name:</strong> {{ doc.first_name }} {{ doc.last_name }}</div>
+        <div class="card-body text">
+          <p class="card-title fs-5" style="text-align: justify;"><strong>Edication grade:</strong> {{ doc.edication_grade }}</p>
+          <p class="card-text fs-5" style="text-align: justify;"><strong>Experience and practice:</strong> {{ doc.experience|truncatewords:40 }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-secondary"><a href="{% url 'doc_info' doc.pk %}" class="btn btn-primary">View full info</a></div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="fs-5 mt-3">Sorry no any match by you query...</p>
+  {% endif %}
+  </div>
+{% endblock content %}
